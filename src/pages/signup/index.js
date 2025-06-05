@@ -5,7 +5,7 @@ import Illustration from "../../assets/illustration.png";
 export const Signup = () => {
   return (
     <div className="container-fluid h-100 bg-primary">
-      <Header />
+      <Header whiteVersion />
       <div className="row">
         <div className="col-6 text-right my-auto">
           <img src={Illustration} className="img-fluid" />

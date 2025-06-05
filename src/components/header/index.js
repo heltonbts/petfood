@@ -1,9 +1,12 @@
-import Logo from "../../assets/logo-white.png";
+import LogoWhite from "../../assets/logo-white.png";
+import Logo from "../../assets/logo-green.png";
 
-export const Header = () => {
+export const Header = ({ whiteVersion }) => {
   return (
     <div className="col-12">
-      <img src={Logo} />
+      <header className="py-4 px-4 text-center">
+        <img src={whiteVersion ? LogoWhite : Logo} className="img-fluid"></img>
+      </header>
     </div>
   );
 };
