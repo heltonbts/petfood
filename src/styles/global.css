@@ -72,6 +72,10 @@ input[type="date"]:disabled {
   border-color: var(--secondary);
 }
 
+.badge {
+  font-weight: lighter;
+}
+
 .badge-primary {
   background-color: var(--primary);
 }
