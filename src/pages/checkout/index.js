@@ -132,7 +132,7 @@ export const Checkout = () => {
           </div>
 
           <div className="col-6">
-            <div className="box col mb-4">
+            <div className="box col mb-4 box-sidebar">
               <h5>Minha Sacola (3)</h5>
 
               <div className="row products">
