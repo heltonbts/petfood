@@ -1,12 +1,13 @@
 import { Header } from "../../components/header/index.js";
 import { Product } from "../../components/product/list/index.js";
+import { hasSidebar } from "../../components/sidebar";
 
 import "./styles.css";
 
 export const Checkout = () => {
   return (
     <div classname="h-100">
-      <Header />
+      <Header hasSidebar />
       <div className="container mt-4">
         <div className="row">
           <div className="col-6">

@@ -32,6 +32,15 @@ export const Sidebar = () => {
             <Product key={p} />
           ))}
         </div>
+        <div className="row footer align-items-end">
+          <div className="col-12 d-flex justify-content-between align-items-center">
+            <b className="d-inline-block">Total</b>
+            <h3 className="d-inline-block">R$ 85,00</h3>
+          </div>
+          <button className="btn btn-block btn-lg btn-primary rounded-0 h-50 align-items-center">
+            Finalizar Comprar
+          </button>
+        </div>
       </div>
     </Dock>
   );

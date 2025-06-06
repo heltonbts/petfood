@@ -1,15 +1,9 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
-import "./styles/global.css";
-
-import { Signup } from "./pages/signup";
-import { Sidebar } from "./components/sidebar";
-import { Checkout } from "./pages/checkout";
-import { Petshop } from "./pages/petshop";
+import { AppRoutes } from "./routes";
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <Sidebar />
-    <Petshop />
+    <AppRoutes />
   </React.StrictMode>
 );
