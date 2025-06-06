@@ -3,7 +3,7 @@ import GoogleMapReact from "google-map-react";
 import { Marker } from "../marker";
 
 export const Maps = () => {
-  const apiKey = import.meta.env.VITE_GOOGLE_MAPS_KEY;
+  const apiKey = process.env.REACT_APP_GOOGLE_MAPS_KEY;
   return (
     <div className="container-map">
       <GoogleMapReact
