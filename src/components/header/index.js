@@ -1,5 +1,7 @@
 import LogoWhite from "../../assets/logo-white.png";
 import Logo from "../../assets/logo-green.png";
+import { Link, useLocation } from "react-router-dom";
+
 import "./styles.css";
 
 export const Header = ({ whiteVersion, hasSidebar }) => {
@@ -8,10 +10,19 @@ export const Header = ({ whiteVersion, hasSidebar }) => {
     window.dispatchEvent(event);
   };
 
+  const location = useLocation();
+  const isSignupPage = location.pathname === "/cadastro";
+
   return (
     <div className="col-12">
       <header className="py-4 px-4 text-center">
-        <img src={whiteVersion ? LogoWhite : Logo} className="img-fluid"></img>
+        {isSignupPage ? (
+          <img src={whiteVersion ? LogoWhite : Logo} className="img-fluid" />
+        ) : (
+          <Link to="/">
+            <img src={whiteVersion ? LogoWhite : Logo} className="img-fluid" />
+          </Link>
+        )}
       </header>
       {!hasSidebar && (
         <button
