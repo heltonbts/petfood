@@ -1,0 +1,11 @@
+.section-title {
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 7px;
+  margin: 20px 0;
+  display: inline-block;
+}
+
+.box-sidebar {
+  max-width: 500px;
+  overflow-y: auto;
+}
