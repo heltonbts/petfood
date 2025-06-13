@@ -1,12 +1,12 @@
 import "./styles.css";
 
-export const Places = () => {
+export const Places = ({ petshop }) => {
   return (
     <li className="places d-flex align-items-start mb-3">
       <img
-        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVzcc036XRmOP3HcN3sXuC2mBQcCzWWTCPjw&s"
+        src={petshop.petshop.logo}
         className="img-fluid rounded"
-        alt="PetLove"
+        alt={petshop.petshop.nome}
         style={{ width: "80px", height: "80px", objectFit: "cover" }}
       />
 
