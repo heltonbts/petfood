@@ -17,3 +17,11 @@ export function setPetshops(petshops) {
     payload: petshops,
   };
 }
+
+export function setShopMapSelected(petshop) {
+  return { type: types.set_petshop_map_selected, petshop };
+}
+
+export function setMapCenter(location) {
+  return { type: types.set_map_center, location };
+}

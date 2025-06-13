@@ -1,18 +1,22 @@
 import "./styles.css";
 
-export const Places = ({ petshop }) => {
+export const Places = ({ petshop, onClick }) => {
   return (
-    <li className="places d-flex align-items-start mb-3">
+    <li
+      onClick={() => onClick(petshop)}
+      className="places d-flex align-items-start mb-3"
+    >
       <img
-        src={petshop.petshop.logo}
+        src={petshop.logo}
         className="img-fluid rounded"
-        alt={petshop.petshop.nome}
+        alt={petshop.nome}
+        referrerPolicy="no-referrer"
         style={{ width: "80px", height: "80px", objectFit: "cover" }}
       />
 
       <div className="ml-3 ms-2">
         <h6 className="mb-1">
-          <b>PetLove</b>
+          <b>{petshop.nome}</b>
         </h6>
 
         <div className="petshop-infos d-flex flex-wrap align-items-center mb-1">

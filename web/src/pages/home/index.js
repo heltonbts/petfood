@@ -6,18 +6,35 @@ import { Header } from "../../components/header";
 import { Places } from "../../components/places";
 import { Maps } from "../../components/maps";
 
-import { requestPetshops } from "../../store/modules/shop/actions";
+import {
+  requestPetshops,
+  setMapCenter,
+  setShopMapSelected,
+} from "../../store/modules/shop/actions";
 
 export const Home = () => {
-  const shopState = useSelector((state) => state.shop);
   const dispatch = useDispatch();
   const { petshops } = useSelector((state) => state.shop);
 
   useEffect(() => {
     dispatch(requestPetshops());
-  }, []);
+  }, [dispatch]);
 
-  console.log('ESTADO ATUAL DO "SHOP" NO MOMENTO DA RENDERIZAÇÃO:', shopState);
+  const handlePetshopClick = (petshop) => {
+    dispatch(setShopMapSelected(petshop));
+    dispatch(setMapCenter(petshop.location));
+  };
+
+  if (!petshops || !petshops.petshops || petshops.petshops.length === 0) {
+    return (
+      <div className="h-100 home-cont">
+        <Header />
+        <div className="container-fluid d-flex justify-content-center align-items-center">
+          <p>Carregando petshops...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="h-100 home-cont">
@@ -28,11 +45,11 @@ export const Home = () => {
         </div>
         <ul className="col-12 petshop-list">
           {petshops.petshops.map((p) => (
-            <Places />
+            <Places key={p._id} petshop={p} onClick={handlePetshopClick} />
           ))}
         </ul>
       </div>
-      <Maps />
+      <Maps petshops={petshops.petshops} />
     </div>
   );
 };
