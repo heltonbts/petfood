@@ -13,25 +13,25 @@ const INITIAL_STATE = {
 
 export default function shop(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case types.signup: {
+    case types.SIGNUP: {
       return produce(state, (draft) => {
         draft.customer = action.payload.customer;
       });
     }
 
-    case types.set_petshops: {
+    case types.SET_PETSHOPS: {
       return produce(state, (draft) => {
         draft.petshops = action.payload;
       });
     }
 
-    case types.set_petshop_map_selected: {
+    case types.SET_PETSHOP_MAP_SELECTED: {
       return produce(state, (draft) => {
-        draft.petshopMapSelected = action.petshops;
+        draft.petshopMapSelected = action.payload;
       });
     }
 
-    case types.set_map_center: {
+    case types.SET_MAP_CENTER: {
       return produce(state, (draft) => {
         draft.mapCenter = action.location;
       });

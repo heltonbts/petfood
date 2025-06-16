@@ -1,10 +1,15 @@
 import "./styles.css";
+import { useSelector } from "react-redux";
 
 export const Places = ({ petshop, onClick }) => {
+  const { petshopMapSelected } = useSelector((state) => state.shop);
+
   return (
     <li
       onClick={() => onClick(petshop)}
-      className="places d-flex align-items-start mb-3"
+      className={`places d-flex align-items-start mb-3 ${
+        petshopMapSelected === petshop._id ? "active" : ""
+      }`}
     >
       <img
         src={petshop.logo}

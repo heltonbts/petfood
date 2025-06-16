@@ -1,9 +1,9 @@
 const types = {
-  signup: "@shop/signup",
-  request_petshops: "@shop/request_petshop",
-  set_petshops: "@shop/set_petshops",
-  set_petshop_map_selected: "@shop/set_petshop_map_selected",
-  set_map_center: "@shop/set_map_center",
+  SIGNUP: "@shop/signup",
+  SET_PETSHOPS: "@shop/set_petshops",
+  REQUEST_PETSHOPS: "@shop/request_petshops",
+  SET_PETSHOP_MAP_SELECTED: "@shop/set_shop_map_selected", // Verifique este nome
+  SET_MAP_CENTER: "@shop/set_map_center", // e este
 };
 
 export default types;

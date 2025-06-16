@@ -21,7 +21,7 @@ export const Home = () => {
   }, [dispatch]);
 
   const handlePetshopClick = (petshop) => {
-    dispatch(setShopMapSelected(petshop));
+    dispatch(setShopMapSelected(petshop._id));
     dispatch(setMapCenter(petshop.location));
   };
 

@@ -2,26 +2,26 @@ import types from "./types.js";
 
 export function setCustom(customer) {
   return {
-    type: types.signup,
+    type: types.SIGNUP,
     payload: { customer },
   };
 }
 
 export function requestPetshops() {
-  return { type: types.request_petshops };
+  return { type: types.REQUEST_PETSHOPS };
 }
 
 export function setPetshops(petshops) {
   return {
-    type: types.set_petshops,
+    type: types.SET_PETSHOPS,
     payload: petshops,
   };
 }
 
-export function setShopMapSelected(petshop) {
-  return { type: types.set_petshop_map_selected, petshop };
+export function setShopMapSelected(petshopId) {
+  return { type: types.SET_PETSHOP_MAP_SELECTED, payload: petshopId };
 }
 
 export function setMapCenter(location) {
-  return { type: types.set_map_center, location };
+  return { type: types.SET_MAP_CENTER, location };
 }

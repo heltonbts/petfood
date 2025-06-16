@@ -12,5 +12,5 @@ export function* requestPetshops() {
 }
 
 export default function* shopSaga() {
-  yield all([takeLatest(types.request_petshops, requestPetshops)]);
+  yield all([takeLatest(types.REQUEST_PETSHOPS, requestPetshops)]);
 }
