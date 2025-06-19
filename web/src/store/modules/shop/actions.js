@@ -18,10 +18,21 @@ export function setPetshops(petshops) {
   };
 }
 
+export function setPetshop(petshopData) {
+  return {
+    type: types.SET_PETSHOP,
+    payload: petshopData,
+  };
+}
+
 export function setShopMapSelected(petshopId) {
   return { type: types.SET_PETSHOP_MAP_SELECTED, payload: petshopId };
 }
 
 export function setMapCenter(location) {
   return { type: types.SET_MAP_CENTER, location };
+}
+
+export function requestPetshop(id) {
+  return { type: types.REQUEST_PETSHOP, payload: { id } };
 }

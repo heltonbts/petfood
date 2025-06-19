@@ -1,20 +1,24 @@
 import "./styles.css";
 
-export const ProductCard = () => {
+export const ProductCard = ({ product }) => {
   return (
     <div className="product-card">
       <div className="image-container">
         <img
-          src="https://m.media-amazon.com/images/I/81pj-xtGXsL._AC_UF1000,1000_QL80_.jpg"
+          src={product.capa}
           className="img-fluid"
+          alt={product.name}
+          referrerPolicy="no-referrer"
         />
         <button className="add-btn">+</button>
       </div>
       <h4>
-        <label className="badge badge-primary">R$90,80</label>
+        <label className="badge badge-primary">
+          R${parseFloat(product.preco).toFixed(2).replace(".", ",")}
+        </label>
       </h4>
       <small>
-        <b>Ração Pedigree Raças Pequenas Adulto - 10,1KG</b>
+        <b>{product.nome}</b>
       </small>
     </div>
   );

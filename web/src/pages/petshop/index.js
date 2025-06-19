@@ -1,8 +1,23 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+
+import { requestPetshop } from "../../store/modules/shop/actions.js";
+
 import { Header } from "../../components/header/index.js";
 import { ProductCard } from "../../components/product/card/index.js";
 import "./styles.css";
 
-export const Petshop = () => {
+export const Petshop = ({ match }) => {
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  const { petshop } = useSelector((state) => state.shop);
+
+  useEffect(() => {
+    if (id) {
+      dispatch(requestPetshop(id));
+    }
+  }, [dispatch, id]);
   return (
     <div className="h-100">
       <Header />
@@ -11,11 +26,11 @@ export const Petshop = () => {
         <div className="row">
           <div className="col-2">
             <img
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQVzcc036XRmOP3HcN3sXuC2mBQcCzWWTCPjw&s"
+              src={petshop.logo}
               className="img-fluid petshop-image"
               alt="PetLove"
             />
-            <b>PetLove</b>
+            <b>{petshop.nome}</b>
             <div className="petshop-infos">
               <span className="mdi mdi-star"></span>
               <span>
@@ -31,9 +46,10 @@ export const Petshop = () => {
           <div className="col-10">
             <h5>Produtos</h5>
             <div className="row">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((p) => (
-                <ProductCard />
+              {petshop?.products?.map((p) => (
+                <ProductCard key={p.id} product={p} />
               ))}
+              {console.log(petshop, "petshop completo")}
             </div>
           </div>
         </div>
