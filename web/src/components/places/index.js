@@ -31,7 +31,7 @@ export const Places = ({ petshop, onClick }) => {
           </span>
 
           <span className="mdi mdi-cash mr-1"></span>
-          <span className="mr-3">$$$</span>
+          <span className="mr-3">{petshop.categoria}</span>
 
           <span className="mdi mdi-crosshairs-gps mr-1"></span>
           <span>2,8km</span>

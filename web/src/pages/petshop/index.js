@@ -18,6 +18,9 @@ export const Petshop = ({ match }) => {
       dispatch(requestPetshop(id));
     }
   }, [dispatch, id]);
+
+  console.log(match, "lista --------------");
+
   return (
     <div className="h-100">
       <Header />

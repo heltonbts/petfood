@@ -1,10 +1,12 @@
 import LogoWhite from "../../assets/logo-white.png";
 import Logo from "../../assets/logo-green.png";
 import { Link, useLocation } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import "./styles.css";
 
 export const Header = ({ whiteVersion, hasSidebar }) => {
+  const { cart } = useSelector((state) => state.shop);
   const OpenSide = () => {
     const event = new CustomEvent("openCart");
     window.dispatchEvent(event);
@@ -29,7 +31,7 @@ export const Header = ({ whiteVersion, hasSidebar }) => {
           className="btn btn-secondary cart-button"
           onClick={() => OpenSide()}
         >
-          <span className="mdi mdi-cart-variant"></span>2 Itens
+          <span className="mdi mdi-cart-variant"></span> ({cart.length}) Itens
         </button>
       )}
     </div>

@@ -36,3 +36,7 @@ export function setMapCenter(location) {
 export function requestPetshop(id) {
   return { type: types.REQUEST_PETSHOP, payload: { id } };
 }
+
+export function toggleCartProduct(product) {
+  return { type: types.TOGGLE_CART_PRODUCT, payload: { product } };
+}

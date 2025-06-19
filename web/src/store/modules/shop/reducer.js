@@ -10,6 +10,7 @@ const INITIAL_STATE = {
     lat: -23.561684,
     lng: -46.625378,
   },
+  cart: [],
 };
 
 export default function shop(state = INITIAL_STATE, action) {
@@ -41,6 +42,19 @@ export default function shop(state = INITIAL_STATE, action) {
     case types.SET_PETSHOP: {
       return produce(state, (draft) => {
         draft.petshop = action.payload;
+      });
+    }
+
+    case types.TOGGLE_CART_PRODUCT: {
+      return produce(state, (draft) => {
+        const { product } = action.payload;
+        const index = draft.cart.findIndex((item) => item._id === product._id);
+
+        if (index >= 0) {
+          draft.cart.splice(index, 1);
+        } else {
+          draft.cart.push(product);
+        }
       });
     }
 

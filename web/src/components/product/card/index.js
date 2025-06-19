@@ -1,6 +1,13 @@
 import "./styles.css";
 
+import { useDispatch, useSelector } from "react-redux";
+import { toggleCartProduct } from "../../../store/modules/shop/actions";
+
 export const ProductCard = ({ product }) => {
+  const dispatch = useDispatch();
+  const { cart } = useSelector((state) => state.shop);
+  const added = cart.findIndex((item) => item._id === product._id) !== -1;
+
   return (
     <div className="product-card">
       <div className="image-container">
@@ -10,7 +17,12 @@ export const ProductCard = ({ product }) => {
           alt={product.name}
           referrerPolicy="no-referrer"
         />
-        <button className="add-btn">+</button>
+        <button
+          onClick={() => dispatch(toggleCartProduct(product))}
+          className={`add-btn btn-${added ? "secondary" : "primary"}`}
+        >
+          {added ? "-" : "+"}
+        </button>
       </div>
       <h4>
         <label className="badge badge-primary">
